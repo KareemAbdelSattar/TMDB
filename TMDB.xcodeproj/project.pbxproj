@@ -36,6 +36,10 @@
 		EB28B5E02B655133003DA6D1 /* MoviesListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB28B5DE2B655133003DA6D1 /* MoviesListTableViewCell.xib */; };
 		EB28B5E32B65516A003DA6D1 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5E22B65516A003DA6D1 /* UITableView+Extension.swift */; };
 		EB28B5E52B65517B003DA6D1 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5E42B65517B003DA6D1 /* UITableViewCell+Extension.swift */; };
+		EB28B5E82B655435003DA6D1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5E72B655435003DA6D1 /* Movie.swift */; };
+		EB28B5EB2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5EA2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift */; };
+		EB28B5EE2B6555D4003DA6D1 /* MoviesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5ED2B6555D4003DA6D1 /* MoviesListRepository.swift */; };
+		EB28B5F12B655684003DA6D1 /* Container+AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5F02B655684003DA6D1 /* Container+AppDependencies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +92,10 @@
 		EB28B5DE2B655133003DA6D1 /* MoviesListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesListTableViewCell.xib; sourceTree = "<group>"; };
 		EB28B5E22B65516A003DA6D1 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		EB28B5E42B65517B003DA6D1 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		EB28B5E72B655435003DA6D1 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		EB28B5EA2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMoviesListUseCase.swift; sourceTree = "<group>"; };
+		EB28B5ED2B6555D4003DA6D1 /* MoviesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListRepository.swift; sourceTree = "<group>"; };
+		EB28B5F02B655684003DA6D1 /* Container+AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+AppDependencies.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +206,7 @@
 		EB28B58A2B651565003DA6D1 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				EB28B5EF2B65566B003DA6D1 /* Dependencies */,
 				EB28B5E12B65513F003DA6D1 /* Extensions */,
 				EB28B5B42B6539C7003DA6D1 /* NetworkService */,
 				EB28B5932B651A8A003DA6D1 /* Configuration */,
@@ -269,6 +278,9 @@
 		EB28B5A52B651F4D003DA6D1 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				EB28B5EC2B65551A003DA6D1 /* RepositoryProtocol */,
+				EB28B5E92B6554BF003DA6D1 /* UseCase */,
+				EB28B5E62B65542D003DA6D1 /* Entity */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -345,6 +357,38 @@
 				EB28B5E42B65517B003DA6D1 /* UITableViewCell+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EB28B5E62B65542D003DA6D1 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				EB28B5E72B655435003DA6D1 /* Movie.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		EB28B5E92B6554BF003DA6D1 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				EB28B5EA2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		EB28B5EC2B65551A003DA6D1 /* RepositoryProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				EB28B5ED2B6555D4003DA6D1 /* MoviesListRepository.swift */,
+			);
+			path = RepositoryProtocol;
+			sourceTree = "<group>";
+		};
+		EB28B5EF2B65566B003DA6D1 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				EB28B5F02B655684003DA6D1 /* Container+AppDependencies.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,10 +546,14 @@
 				EB28B5522B651435003DA6D1 /* AppDelegate.swift in Sources */,
 				EB28B5E32B65516A003DA6D1 /* UITableView+Extension.swift in Sources */,
 				EB28B5CB2B65412A003DA6D1 /* MoviesListViewModel.swift in Sources */,
+				EB28B5E82B655435003DA6D1 /* Movie.swift in Sources */,
 				EB28B5C92B65412A003DA6D1 /* MoviesListViewModelType.swift in Sources */,
+				EB28B5EE2B6555D4003DA6D1 /* MoviesListRepository.swift in Sources */,
 				EB28B5A02B651DAA003DA6D1 /* AppCoordinator.swift in Sources */,
 				EB28B5BA2B653A03003DA6D1 /* NetworkService.swift in Sources */,
 				EB28B5542B651435003DA6D1 /* SceneDelegate.swift in Sources */,
+				EB28B5EB2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift in Sources */,
+				EB28B5F12B655684003DA6D1 /* Container+AppDependencies.swift in Sources */,
 				EB28B5CA2B65412A003DA6D1 /* MoviesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
