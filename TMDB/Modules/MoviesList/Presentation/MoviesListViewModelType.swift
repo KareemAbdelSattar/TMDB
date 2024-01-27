@@ -10,4 +10,6 @@ protocol MoviesListViewModelInput {}
 
 /// MoviesList ViewModel Output
 ///
-protocol MoviesListViewModelOutput {}
+protocol MoviesListViewModelOutput {
+    func viewDidLoad()
+}

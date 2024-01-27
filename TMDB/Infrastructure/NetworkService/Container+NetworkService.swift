@@ -12,10 +12,14 @@ extension Container {
                 return DefaultNetworkConfigurable(
                     baseURL: URL(string: "https://default.url")!,
                     isFullPath: false,
-                    headers: ["Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNDI1ZTRkZDNhNzJmODMxZGNmNmNmYTQ1NmQyNTZjMiIsInN1YiI6IjYzN2Y1ZmI0YTRhZjhmMDA5N2JlZTI2MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.x-NuPpCDErSOt2NXGK8IN7O4qxj-Rrywo1wQpXO08pM"]
+                    headers: ["Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYjk5ZjdhZGIzNGZiNjM4NmY3MmEzYjZjYTY1NDI5NSIsInN1YiI6IjY1YjUyYTI1YjExMzFmMDE3MjI5MjYwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Eqk3iIks3uHixyU0cl76iDHU5tcIFyoRx31Q2B9LOhE"]
                 )
             }
-            return DefaultNetworkConfigurable(baseURL: baseURL, isFullPath: false) }
+            return DefaultNetworkConfigurable(
+                baseURL: baseURL,
+                isFullPath: false,
+                headers: ["Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYjk5ZjdhZGIzNGZiNjM4NmY3MmEzYjZjYTY1NDI5NSIsInN1YiI6IjY1YjUyYTI1YjExMzFmMDE3MjI5MjYwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Eqk3iIks3uHixyU0cl76iDHU5tcIFyoRx31Q2B9LOhE"]
+            ) }
     }
     
     var networkService: Factory<NetworkService> {

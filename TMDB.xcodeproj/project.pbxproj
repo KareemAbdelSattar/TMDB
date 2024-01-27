@@ -306,8 +306,8 @@
 			children = (
 				EB28B5C62B65412A003DA6D1 /* MoviesListViewController.swift */,
 				EB28B5C82B65412A003DA6D1 /* MoviesListViewController.xib */,
-				EB28B5C52B65412A003DA6D1 /* MoviesListViewModelType.swift */,
 				EB28B5C72B65412A003DA6D1 /* MoviesListViewModel.swift */,
+				EB28B5C52B65412A003DA6D1 /* MoviesListViewModelType.swift */,
 				EB28B5DB2B655100003DA6D1 /* Cells */,
 			);
 			path = Presentation;
