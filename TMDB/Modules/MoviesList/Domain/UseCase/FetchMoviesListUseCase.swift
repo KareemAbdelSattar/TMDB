@@ -5,7 +5,7 @@ typealias MoviesListCompletionHandler = (Result<MoviesList?, Error>) -> Void
 
 
 protocol FetchMoviesListUseCase {
-    func execute(completion: MoviesListCompletionHandler)
+    func execute(completion: @escaping MoviesListCompletionHandler)
 }
 
 
@@ -18,7 +18,7 @@ final class DefaultFetchMoviesListUseCase {
 }
 
 extension DefaultFetchMoviesListUseCase: FetchMoviesListUseCase {
-    func execute(completion: MoviesListCompletionHandler) {
+    func execute(completion: @escaping MoviesListCompletionHandler) {
         moviesListRepository.fetchMoviesList(completion: completion)
     }
 }

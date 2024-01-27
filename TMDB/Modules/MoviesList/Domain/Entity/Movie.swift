@@ -7,7 +7,8 @@ struct MoviesList {
 }
 
 struct Movie {
-    let id: String
+    let id: Int
     let title: String
     let image: String
+    let releaseDate: String
 }

@@ -40,6 +40,9 @@
 		EB28B5EB2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5EA2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift */; };
 		EB28B5EE2B6555D4003DA6D1 /* MoviesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5ED2B6555D4003DA6D1 /* MoviesListRepository.swift */; };
 		EB28B5F12B655684003DA6D1 /* Container+AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5F02B655684003DA6D1 /* Container+AppDependencies.swift */; };
+		EB28B5F32B655757003DA6D1 /* MoviesListRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5F22B655757003DA6D1 /* MoviesListRepositoryImp.swift */; };
+		EB28B5F52B6557B0003DA6D1 /* MoviesListsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5F42B6557B0003DA6D1 /* MoviesListsEndPoint.swift */; };
+		EB28B5F82B6557DC003DA6D1 /* ProductListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5F72B6557DC003DA6D1 /* ProductListDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,9 @@
 		EB28B5EA2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMoviesListUseCase.swift; sourceTree = "<group>"; };
 		EB28B5ED2B6555D4003DA6D1 /* MoviesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListRepository.swift; sourceTree = "<group>"; };
 		EB28B5F02B655684003DA6D1 /* Container+AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+AppDependencies.swift"; sourceTree = "<group>"; };
+		EB28B5F22B655757003DA6D1 /* MoviesListRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListRepositoryImp.swift; sourceTree = "<group>"; };
+		EB28B5F42B6557B0003DA6D1 /* MoviesListsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListsEndPoint.swift; sourceTree = "<group>"; };
+		EB28B5F72B6557DC003DA6D1 /* ProductListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,8 +294,9 @@
 		EB28B5A62B651F54003DA6D1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				EB28B5D72B654526003DA6D1 /* DataSource */,
 				EB28B5D52B6544F8003DA6D1 /* Repositories */,
+				EB28B5D72B654526003DA6D1 /* DataSource */,
+				EB28B5F62B6557CC003DA6D1 /* DTO */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -322,6 +329,7 @@
 		EB28B5D52B6544F8003DA6D1 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				EB28B5F22B655757003DA6D1 /* MoviesListRepositoryImp.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -329,6 +337,7 @@
 		EB28B5D72B654526003DA6D1 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				EB28B5F42B6557B0003DA6D1 /* MoviesListsEndPoint.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -389,6 +398,14 @@
 				EB28B5F02B655684003DA6D1 /* Container+AppDependencies.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		EB28B5F62B6557CC003DA6D1 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				EB28B5F72B6557DC003DA6D1 /* ProductListDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,6 +554,8 @@
 				EB28B5952B651A9A003DA6D1 /* AppConfiguration.swift in Sources */,
 				EB28B5BC2B653A03003DA6D1 /* EndPoint.swift in Sources */,
 				EB28B5D12B65413F003DA6D1 /* MovieDetailsViewModelType.swift in Sources */,
+				EB28B5F82B6557DC003DA6D1 /* ProductListDTO.swift in Sources */,
+				EB28B5F32B655757003DA6D1 /* MoviesListRepositoryImp.swift in Sources */,
 				EB28B5D22B65413F003DA6D1 /* MovieDetailsViewController.swift in Sources */,
 				EB28B5BE2B653A03003DA6D1 /* DataTransferService.swift in Sources */,
 				EB28B5E52B65517B003DA6D1 /* UITableViewCell+Extension.swift in Sources */,
@@ -546,6 +565,7 @@
 				EB28B5522B651435003DA6D1 /* AppDelegate.swift in Sources */,
 				EB28B5E32B65516A003DA6D1 /* UITableView+Extension.swift in Sources */,
 				EB28B5CB2B65412A003DA6D1 /* MoviesListViewModel.swift in Sources */,
+				EB28B5F52B6557B0003DA6D1 /* MoviesListsEndPoint.swift in Sources */,
 				EB28B5E82B655435003DA6D1 /* Movie.swift in Sources */,
 				EB28B5C92B65412A003DA6D1 /* MoviesListViewModelType.swift in Sources */,
 				EB28B5EE2B6555D4003DA6D1 /* MoviesListRepository.swift in Sources */,
