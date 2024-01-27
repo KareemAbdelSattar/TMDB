@@ -2,28 +2,33 @@ import Foundation
 import Factory
 
 extension Container {
+    var config: Factory<Configuration> {
+        self { .shared }
+    }
+    
     var appConfig: Factory<AppConfiguration> {
         self { .shared }
     }
     
-    var config: Factory<NetworkConfigurable> {
+    var networkConfig: Factory<NetworkConfigurable> {
         self {
-            guard let baseURL = URL(string: self.appConfig().value(.baseURL)) else {
+            guard let baseURL = URL(string: self.appConfig().baseURL) else {
                 return DefaultNetworkConfigurable(
                     baseURL: URL(string: "https://default.url")!,
-                    isFullPath: false,
-                    headers: ["Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYjk5ZjdhZGIzNGZiNjM4NmY3MmEzYjZjYTY1NDI5NSIsInN1YiI6IjY1YjUyYTI1YjExMzFmMDE3MjI5MjYwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Eqk3iIks3uHixyU0cl76iDHU5tcIFyoRx31Q2B9LOhE"]
+                    isFullPath: false
                 )
             }
             return DefaultNetworkConfigurable(
                 baseURL: baseURL,
                 isFullPath: false,
-                headers: ["Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYjk5ZjdhZGIzNGZiNjM4NmY3MmEzYjZjYTY1NDI5NSIsInN1YiI6IjY1YjUyYTI1YjExMzFmMDE3MjI5MjYwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Eqk3iIks3uHixyU0cl76iDHU5tcIFyoRx31Q2B9LOhE"]
+                headers: [
+                    "Authorization": self.appConfig().apiKey
+                ]
             ) }
     }
     
     var networkService: Factory<NetworkService> {
-        self { DefaultNetworkService(config: self.config()) }
+        self { DefaultNetworkService(config: self.networkConfig()) }
     }
     
     var sessions: Factory<NetworkSessionManager> {
