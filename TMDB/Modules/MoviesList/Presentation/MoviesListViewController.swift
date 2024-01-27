@@ -3,7 +3,8 @@ import UIKit
 class MoviesListViewController: UIViewController {
 
     // MARK: Outlets
-
+    @IBOutlet private weak var tableView: UITableView!
+    
     // MARK: Properties
 
     private let viewModel: MoviesListViewModelType
@@ -24,6 +25,7 @@ class MoviesListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
 }
 
@@ -37,4 +39,26 @@ extension MoviesListViewController {}
 
 // MARK: - Private Handlers
 
-private extension MoviesListViewController {}
+private extension MoviesListViewController {
+    func setupUI() {
+        setupTableView()
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 100
+        tableView.registerNib(cellType: MoviesListTableViewCell.self)
+    }
+}
+
+extension MoviesListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeue(cellType: MoviesListTableViewCell.self, for: indexPath)
+        return cell
+    }
+}
