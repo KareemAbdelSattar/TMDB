@@ -287,10 +287,10 @@
 		EB28B5A32B651F3A003DA6D1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				EB28B5CD2B65413F003DA6D1 /* MovieDetailsViewModelType.swift */,
 				EB28B5CE2B65413F003DA6D1 /* MovieDetailsViewController.swift */,
-				EB28B5CF2B65413F003DA6D1 /* MovieDetailsViewModel.swift */,
 				EB28B5D02B65413F003DA6D1 /* MovieDetailsViewController.xib */,
+				EB28B5CD2B65413F003DA6D1 /* MovieDetailsViewModelType.swift */,
+				EB28B5CF2B65413F003DA6D1 /* MovieDetailsViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

@@ -3,7 +3,12 @@ import UIKit
 class MovieDetailsViewController: UIViewController {
 
     // MARK: Outlets
-
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var posterImageViewHeight: NSLayoutConstraint!
+    
     // MARK: Properties
 
     private let viewModel: MovieDetailsViewModelType
