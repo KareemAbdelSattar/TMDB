@@ -14,7 +14,7 @@ class MovieDetailsViewController: UIViewController {
     
     private let viewModel: MovieDetailsViewModelType
     private var subscription = Set<AnyCancellable>()
-    
+
     // MARK: Init
     
     init(viewModel: MovieDetailsViewModelType) {

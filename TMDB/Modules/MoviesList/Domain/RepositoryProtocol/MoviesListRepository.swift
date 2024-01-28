@@ -1,5 +1,5 @@
 import Foundation
 
 protocol MoviesListRepository {
-    func fetchMoviesList(completion: @escaping MoviesListCompletionHandler)
+    func fetchMoviesList(page: Int, completion: @escaping MoviesListCompletionHandler)
 }

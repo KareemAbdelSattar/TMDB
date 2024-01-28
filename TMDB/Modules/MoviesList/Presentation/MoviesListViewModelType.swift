@@ -18,4 +18,5 @@ protocol MoviesListViewModelOutput {
     var isEmptyTableView: AnyPublisher<Bool, Never> { get }
     var movies: CurrentValueSubject<[MovieModel], Never> { get }
     func viewDidLoad()
+    func reloadMovieList()
 }

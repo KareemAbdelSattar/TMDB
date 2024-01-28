@@ -11,6 +11,11 @@ class MoviesListViewController: UIViewController {
     
     private let viewModel: MoviesListViewModelType
     private var subscription = Set<AnyCancellable>()
+    private lazy var refreshController: UIRefreshControl = {
+        let refreshController = UIRefreshControl()
+        refreshController.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
+        return refreshController
+    }()
     
     // MARK: Init
     
@@ -36,7 +41,12 @@ class MoviesListViewController: UIViewController {
 
 // MARK: - Actions
 
-extension MoviesListViewController {}
+extension MoviesListViewController {
+    @objc
+    func refreshControlAction() {
+        viewModel.reloadMovieList()
+    }
+}
 
 // MARK: - Configurations
 
@@ -54,6 +64,7 @@ private extension MoviesListViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.registerNib(cellType: MoviesListTableViewCell.self)
+        tableView.refreshControl = refreshController
     }
     
     func binding(viewModel: MoviesListViewModelType) {
@@ -62,6 +73,9 @@ private extension MoviesListViewController {
             .sink { [weak self] isLoading in
                 guard let self else { return }
                 self.tableView.updateSkeletonLoadingState(isLoading: isLoading)
+                if !isLoading {
+                    self.refreshController.endRefreshing()
+                }
             }.store(in: &subscription)
         
         viewModel.isEmptyTableView

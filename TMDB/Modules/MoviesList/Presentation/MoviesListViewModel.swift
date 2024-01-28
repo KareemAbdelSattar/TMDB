@@ -61,6 +61,11 @@ extension MoviesListViewModel: MoviesListViewModelOutput {
     func viewDidLoad() {
         performFetchMoviesList()
     }
+    
+    func reloadMovieList() {
+        movies.send([])
+        performFetchMoviesList()
+    }
 }
 
 // MARK: Private Handlers
@@ -68,7 +73,7 @@ extension MoviesListViewModel: MoviesListViewModelOutput {
 private extension MoviesListViewModel {
     func performFetchMoviesList() {
         state = .loading
-        moviesListUseCase.execute { [weak self] result in
+        moviesListUseCase.execute(page: 1) { [weak self] result in
             guard let self else { return }
             
             switch result {
