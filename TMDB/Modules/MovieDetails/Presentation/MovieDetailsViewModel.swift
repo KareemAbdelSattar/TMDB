@@ -1,5 +1,7 @@
 import Foundation
 import Factory
+import Combine
+
 // MARK: MovieDetailsViewModel
 
 class MovieDetailsViewModel {
@@ -35,6 +37,13 @@ extension MovieDetailsViewModel: MovieDetailsViewModelInput {}
 // MARK: MovieDetailsViewModelOutput
 
 extension MovieDetailsViewModel: MovieDetailsViewModelOutput {
+    var productDetailsPublisher: AnyPublisher<MovieDetailsModel?, Never> {
+        $state.map {
+            guard case .loaded(let movieDetails) = $0 else { return nil }
+            return movieDetails
+        }.eraseToAnyPublisher()
+    }
+    
     func viewDidLoad() {
         performFetchMovieDetails(movieId: movieId)
     }

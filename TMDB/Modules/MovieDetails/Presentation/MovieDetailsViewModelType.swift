@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 /// MovieDetails Input & Output
 ///
@@ -11,5 +12,6 @@ protocol MovieDetailsViewModelInput {}
 /// MovieDetails ViewModel Output
 ///
 protocol MovieDetailsViewModelOutput {
+    var productDetailsPublisher: AnyPublisher<MovieDetailsModel?, Never> { get }
     func viewDidLoad()
 }
