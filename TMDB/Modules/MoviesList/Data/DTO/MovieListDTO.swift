@@ -1,8 +1,8 @@
 import Foundation
 
-struct ProductListDTO: Decodable {
+struct MovieListDTO: Decodable {
     let page: Int
-    let results: [ProductDTO]
+    let results: [MovieDTO]
     let totalPages, totalResults: Int
     
     enum CodingKeys: String, CodingKey {
@@ -12,7 +12,7 @@ struct ProductListDTO: Decodable {
     }
 }
 
-extension ProductListDTO {
+extension MovieListDTO {
     func toDomain() -> MoviesList {
         return MoviesList(
             page: page,
@@ -23,7 +23,7 @@ extension ProductListDTO {
 }
 
 
-struct ProductDTO: Codable {
+struct MovieDTO: Codable {
     let id: Int
     let posterPath, releaseDate, title: String
 
@@ -35,7 +35,7 @@ struct ProductDTO: Codable {
     }
 }
 
-extension ProductDTO {
+extension MovieDTO {
     func toDomain() -> Movie {
         Movie(
             id: id,

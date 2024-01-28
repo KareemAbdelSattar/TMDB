@@ -55,7 +55,7 @@ private extension MovieDetailsViewController {
                 isLoading ? self.showSkeletonView() : self.hideSkeletonView()
             }.store(in: &subscription)
 
-        viewModel.productDetailsPublisher
+        viewModel.movieDetailsPublisher
             .receive(on: DispatchQueue.main)
             .compactMap { $0 }
             .sink { [weak self] movieDetails in

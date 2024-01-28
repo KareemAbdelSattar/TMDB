@@ -12,7 +12,7 @@ protocol MovieDetailsViewModelInput {}
 /// MovieDetails ViewModel Output
 ///
 protocol MovieDetailsViewModelOutput {
-    var productDetailsPublisher: AnyPublisher<MovieDetailsModel?, Never> { get }
+    var movieDetailsPublisher: AnyPublisher<MovieDetailsModel?, Never> { get }
     var isLoadingPublisher: AnyPublisher<Bool, Never> { get }
     func viewDidLoad()
 }

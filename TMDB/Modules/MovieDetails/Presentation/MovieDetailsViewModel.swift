@@ -37,7 +37,7 @@ extension MovieDetailsViewModel: MovieDetailsViewModelInput {}
 // MARK: MovieDetailsViewModelOutput
 
 extension MovieDetailsViewModel: MovieDetailsViewModelOutput {
-    var productDetailsPublisher: AnyPublisher<MovieDetailsModel?, Never> {
+    var movieDetailsPublisher: AnyPublisher<MovieDetailsModel?, Never> {
         $state.map {
             guard case .loaded(let movieDetails) = $0 else { return nil }
             return movieDetails
