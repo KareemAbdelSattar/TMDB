@@ -48,6 +48,7 @@
 		EBB4209B2B663F5700FCB6D1 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4209A2B663F5700FCB6D1 /* EmptyView.swift */; };
 		EBB4209D2B663F7F00FCB6D1 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB4209C2B663F7F00FCB6D1 /* EmptyView.xib */; };
 		EBB4209F2B663FB800FCB6D1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4209E2B663FB800FCB6D1 /* UIView+Extension.swift */; };
+		EBFC714F2B66436100E59D75 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC714E2B66436100E59D75 /* MovieViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		EBB4209A2B663F5700FCB6D1 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		EBB4209C2B663F7F00FCB6D1 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		EBB4209E2B663FB800FCB6D1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		EBFC714E2B66436100E59D75 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 				EB28B5C82B65412A003DA6D1 /* MoviesListViewController.xib */,
 				EB28B5C72B65412A003DA6D1 /* MoviesListViewModel.swift */,
 				EB28B5C52B65412A003DA6D1 /* MoviesListViewModelType.swift */,
+				EBFC714E2B66436100E59D75 /* MovieViewModel.swift */,
 				EB28B5DB2B655100003DA6D1 /* Cells */,
 			);
 			path = Presentation;
@@ -607,6 +610,7 @@
 				EB28B5EE2B6555D4003DA6D1 /* MoviesListRepository.swift in Sources */,
 				EB28B5A02B651DAA003DA6D1 /* AppCoordinator.swift in Sources */,
 				EB28B5BA2B653A03003DA6D1 /* NetworkService.swift in Sources */,
+				EBFC714F2B66436100E59D75 /* MovieViewModel.swift in Sources */,
 				EB28B5542B651435003DA6D1 /* SceneDelegate.swift in Sources */,
 				EB28B5EB2B6554E7003DA6D1 /* FetchMoviesListUseCase.swift in Sources */,
 				EB28B5F12B655684003DA6D1 /* Container+AppDependencies.swift in Sources */,

@@ -7,7 +7,7 @@ import Combine
 
 class MoviesListViewModel {
     @Injected(\.moviesListUseCase) private var moviesListUseCase: FetchMoviesListUseCase
-    var movies: CurrentValueSubject<[Movie], Never> = CurrentValueSubject([])
+    var movies: CurrentValueSubject<[MovieViewModel], Never> = CurrentValueSubject([])
     @Published private var state: State = .loading
     
     enum State {
@@ -60,7 +60,11 @@ private extension MoviesListViewModel {
             switch result {
             case .success(let moviesList):
                 self.state = .loaded
-                self.movies.send(moviesList?.movies ?? [])
+                let moviesViewModel = moviesList?.movies.map {
+                    let url = URL(string: $0.image)
+                    return MovieViewModel(id: $0.id, title: $0.title, image: url, releaseDate: $0.releaseDate)
+                }
+                self.movies.send(moviesViewModel ?? [])
             case .failure(let error):
                 self.state = .failure(error)
             }
