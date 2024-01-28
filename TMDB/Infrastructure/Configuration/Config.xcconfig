@@ -1,2 +1,2 @@
 BASE_URL = HTTPS:/$()/api.themoviedb.org/3/
-IMAGE_URL = HTTPS:/$()/image.tmdb.org/t/p/w500
+IMAGE_URL = HTTPS:/$()/image.tmdb.org/t/p/w

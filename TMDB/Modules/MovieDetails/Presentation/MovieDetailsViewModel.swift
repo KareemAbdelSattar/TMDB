@@ -81,8 +81,8 @@ private extension MovieDetailsViewModel {
         if let movieDetails {
             let date = DateUtils.parseDate(from: movieDetails.year)
             let year = DateUtils.extractYear(from: date)
-            let url = URL(string: self.config.value(.imageURL) + movieDetails.poster)
-            
+            let url = URL(string: "\(self.config.value(.imageURL))500\(movieDetails.poster)")
+
             let movieDetailsModel = MovieDetailsModel(
                 title: movieDetails.title,
                 year: year,

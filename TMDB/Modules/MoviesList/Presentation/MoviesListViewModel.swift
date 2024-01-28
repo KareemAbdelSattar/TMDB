@@ -129,7 +129,7 @@ private extension MoviesListViewModel {
     func movieViewModelMapping(movies: [Movie]?) -> [MovieModel] {
         guard let movies else { return [] }
         return movies.map {
-            let url = URL(string: self.config.value(.imageURL) + $0.image)
+            let url = URL(string: "\(self.config.value(.imageURL))154\($0.image)")
             let date = DateUtils.parseDate(from: $0.releaseDate)
             let year = DateUtils.extractYear(from: date)
             return MovieModel(id: $0.id, title: $0.title, image: url, releaseDate: year)
