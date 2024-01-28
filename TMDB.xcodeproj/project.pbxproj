@@ -52,6 +52,9 @@
 		EBFC71542B665AE800E59D75 /* MovieDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71532B665AE800E59D75 /* MovieDetailsRepository.swift */; };
 		EBFC71562B665B2900E59D75 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71552B665B2900E59D75 /* MovieDetails.swift */; };
 		EBFC71582B665B6100E59D75 /* FetchMovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71572B665B6100E59D75 /* FetchMovieDetailsUseCase.swift */; };
+		EBFC715B2B665E0300E59D75 /* MovieDetailsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC715A2B665E0300E59D75 /* MovieDetailsDTO.swift */; };
+		EBFC715E2B665E9A00E59D75 /* MovieDetailsRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC715D2B665E9A00E59D75 /* MovieDetailsRepositoryImp.swift */; };
+		EBFC71612B665EFC00E59D75 /* MovieDetailsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71602B665EFC00E59D75 /* MovieDetailsEndPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,9 @@
 		EBFC71532B665AE800E59D75 /* MovieDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRepository.swift; sourceTree = "<group>"; };
 		EBFC71552B665B2900E59D75 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		EBFC71572B665B6100E59D75 /* FetchMovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMovieDetailsUseCase.swift; sourceTree = "<group>"; };
+		EBFC715A2B665E0300E59D75 /* MovieDetailsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsDTO.swift; sourceTree = "<group>"; };
+		EBFC715D2B665E9A00E59D75 /* MovieDetailsRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRepositoryImp.swift; sourceTree = "<group>"; };
+		EBFC71602B665EFC00E59D75 /* MovieDetailsEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsEndPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +295,9 @@
 		EB28B5A22B651F32003DA6D1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EBFC715F2B665EEE00E59D75 /* DataSource */,
+				EBFC715C2B665E7D00E59D75 /* Repositories */,
+				EBFC71592B665DF800E59D75 /* DTO */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -474,6 +483,30 @@
 			path = RepositoryProtocol;
 			sourceTree = "<group>";
 		};
+		EBFC71592B665DF800E59D75 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				EBFC715A2B665E0300E59D75 /* MovieDetailsDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		EBFC715C2B665E7D00E59D75 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				EBFC715D2B665E9A00E59D75 /* MovieDetailsRepositoryImp.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		EBFC715F2B665EEE00E59D75 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				EBFC71602B665EFC00E59D75 /* MovieDetailsEndPoint.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -626,6 +659,7 @@
 				EBFC71582B665B6100E59D75 /* FetchMovieDetailsUseCase.swift in Sources */,
 				EB28B5D12B65413F003DA6D1 /* MovieDetailsViewModelType.swift in Sources */,
 				EB28B5F82B6557DC003DA6D1 /* ProductListDTO.swift in Sources */,
+				EBFC715E2B665E9A00E59D75 /* MovieDetailsRepositoryImp.swift in Sources */,
 				EB28B5F32B655757003DA6D1 /* MoviesListRepositoryImp.swift in Sources */,
 				EB28B5D22B65413F003DA6D1 /* MovieDetailsViewController.swift in Sources */,
 				EB28B5BE2B653A03003DA6D1 /* DataTransferService.swift in Sources */,
@@ -639,7 +673,9 @@
 				EB28B5E32B65516A003DA6D1 /* UITableView+Extension.swift in Sources */,
 				EB28B5CB2B65412A003DA6D1 /* MoviesListViewModel.swift in Sources */,
 				EBFC71562B665B2900E59D75 /* MovieDetails.swift in Sources */,
+				EBFC715B2B665E0300E59D75 /* MovieDetailsDTO.swift in Sources */,
 				EB28B5F52B6557B0003DA6D1 /* MoviesListsEndPoint.swift in Sources */,
+				EBFC71612B665EFC00E59D75 /* MovieDetailsEndPoint.swift in Sources */,
 				EB28B5E82B655435003DA6D1 /* Movie.swift in Sources */,
 				EBFC71542B665AE800E59D75 /* MovieDetailsRepository.swift in Sources */,
 				EB28B5C92B65412A003DA6D1 /* MoviesListViewModelType.swift in Sources */,
