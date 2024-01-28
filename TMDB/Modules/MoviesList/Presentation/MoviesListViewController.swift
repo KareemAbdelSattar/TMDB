@@ -44,7 +44,7 @@ class MoviesListViewController: UIViewController {
 extension MoviesListViewController {
     @objc
     func refreshControlAction() {
-        viewModel.reloadMovieList()
+        viewModel.changeState(state: .reload)
     }
 }
 
@@ -78,7 +78,7 @@ private extension MoviesListViewController {
                 }
             }.store(in: &subscription)
         
-        viewModel.isEmptyTableView
+        viewModel.isEmptyTableViewPublisher
             .receive(on: DispatchQueue.main)
             .sink { isEmpty in
                 self.tableView.updateTableViewState(isEmpty: isEmpty)
@@ -111,5 +111,11 @@ extension MoviesListViewController: UITableViewDelegate, SkeletonTableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRow(at: indexPath.row)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height )) {
+            viewModel.changeState(state: .loadingMore)
+        }
     }
 }
