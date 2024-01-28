@@ -1,9 +1,8 @@
 import Foundation
 
-struct MovieDetails {
-    let id: Int
+struct MovieDetailsModel {
     let title: String
     let year: String
     let overview: String
-    let poster: String
+    let poster: URL?
 }

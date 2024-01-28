@@ -21,7 +21,8 @@ extension MovieDetailsDTO {
             id: id,
             title: originalTitle,
             year: releaseDate,
-            overview: overview
+            overview: overview,
+            poster: posterPath
         )
     }
 }

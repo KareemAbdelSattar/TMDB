@@ -9,4 +9,12 @@ extension Container {
     var moviesListUseCase: Factory<FetchMoviesListUseCase> {
         self { DefaultFetchMoviesListUseCase(moviesListRepository: self.moviesListRepository()) }
     }
+    
+    var movieDetailsRepository: Factory<MovieDetailsRepository> {
+        self { DefaultMovieDetailsRepository() }
+    }
+    
+    var movieDetailsUseCase: Factory<FetchMovieDetailsUseCase> {
+        self { DefaultFetchMovieDetailsUseCase(movieDetailsRepository: self.movieDetailsRepository()) }
+    }
 }

@@ -10,4 +10,6 @@ protocol MovieDetailsViewModelInput {}
 
 /// MovieDetails ViewModel Output
 ///
-protocol MovieDetailsViewModelOutput {}
+protocol MovieDetailsViewModelOutput {
+    func viewDidLoad()
+}
