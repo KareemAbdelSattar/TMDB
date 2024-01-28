@@ -31,3 +31,21 @@ extension UITableView {
         self.showAnimatedGradientSkeleton()
     }
 }
+
+
+// MARK: Empty View
+
+extension UITableView {
+    func updateTableViewState(isEmpty: Bool) {
+        isEmpty ? showEmptyView() : hideEmptyView()
+    }
+    
+    private func showEmptyView() {
+        let emptyView = EmptyView(frame: .zero)
+        backgroundView = emptyView
+    }
+    
+    private func hideEmptyView() {
+        backgroundView = nil
+    }
+}

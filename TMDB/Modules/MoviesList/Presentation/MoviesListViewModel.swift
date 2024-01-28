@@ -59,12 +59,11 @@ private extension MoviesListViewModel {
             
             switch result {
             case .success(let moviesList):
-                self.movies.send([])
+                self.state = .loaded
+                self.movies.send(moviesList?.movies ?? [])
             case .failure(let error):
                 self.state = .failure(error)
             }
-            
-            self.state = .loaded
         }
     }
 }

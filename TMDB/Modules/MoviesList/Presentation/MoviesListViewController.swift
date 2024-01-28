@@ -68,7 +68,7 @@ private extension MoviesListViewController {
         viewModel.isEmptyTableView
             .receive(on: DispatchQueue.main)
             .sink { isEmpty in
-                print(isEmpty)
+                self.tableView.updateTableViewState(isEmpty: isEmpty)
             }.store(in: &subscription)
         
         viewModel.movies
