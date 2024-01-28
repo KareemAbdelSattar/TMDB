@@ -14,3 +14,20 @@ extension UITableView {
         return cell
     }
 }
+
+// MARK: Skeleton Loading
+
+extension UITableView {
+    func updateSkeletonLoadingState(isLoading: Bool) {
+        isLoading ? showSkeletonAnimation() : hideSkeletonAnimation()
+    }
+    
+    private func hideSkeletonAnimation() {
+        self.stopSkeletonAnimation()
+        self.hideSkeleton()
+    }
+    
+    private func showSkeletonAnimation() {
+        self.showAnimatedGradientSkeleton()
+    }
+}

@@ -21,8 +21,8 @@ extension Container {
             return DefaultNetworkConfigurable(
                 baseURL: baseURL,
                 isFullPath: false,
-                headers: [
-                    "Authorization": self.appConfig().apiKey
+                queryParameters: [
+                    "api_key": self.appConfig().apiKey
                 ]
             ) }
     }

@@ -44,6 +44,7 @@
 		EB28B5F52B6557B0003DA6D1 /* MoviesListsEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5F42B6557B0003DA6D1 /* MoviesListsEndPoint.swift */; };
 		EB28B5F82B6557DC003DA6D1 /* ProductListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28B5F72B6557DC003DA6D1 /* ProductListDTO.swift */; };
 		EB5E64712B658E39002CF03F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E64702B658E39002CF03F /* AppConfiguration.swift */; };
+		EB5E64752B659931002CF03F /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = EB5E64742B659931002CF03F /* SkeletonView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB28B5DA2B654EFC003DA6D1 /* Kingfisher in Frameworks */,
+				EB5E64752B659931002CF03F /* SkeletonView in Frameworks */,
 				EB28B5AA2B652DE1003DA6D1 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +432,7 @@
 			packageProductDependencies = (
 				EB28B5A92B652DE1003DA6D1 /* Factory */,
 				EB28B5D92B654EFC003DA6D1 /* Kingfisher */,
+				EB5E64742B659931002CF03F /* SkeletonView */,
 			);
 			productName = TMDB;
 			productReference = EB28B54E2B651435003DA6D1 /* TMDB.app */;
@@ -506,6 +509,7 @@
 			packageReferences = (
 				EB28B5A82B652DE1003DA6D1 /* XCRemoteSwiftPackageReference "Factory" */,
 				EB28B5D82B654EFC003DA6D1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				EB5E64732B659931002CF03F /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = EB28B54F2B651435003DA6D1 /* Products */;
 			projectDirPath = "";
@@ -935,6 +939,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		EB5E64732B659931002CF03F /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.30.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -947,6 +959,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB28B5D82B654EFC003DA6D1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		EB5E64742B659931002CF03F /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB5E64732B659931002CF03F /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
