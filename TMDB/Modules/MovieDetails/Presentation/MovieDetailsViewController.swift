@@ -67,6 +67,7 @@ private extension MovieDetailsViewController {
     func configureView(movieDetails: MovieDetailsModel) {
         posterImageView.kf.indicatorType = .activity
         posterImageView.kf.setImage(with: movieDetails.poster)
+        title = movieDetails.title
         titleLabel.text = movieDetails.title
         yearLabel.text = movieDetails.year
         descriptionLabel.text = movieDetails.overview
