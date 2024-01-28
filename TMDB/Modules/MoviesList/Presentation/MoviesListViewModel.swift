@@ -14,13 +14,8 @@ class MoviesListViewModel {
     @Published private var state: State = .loading
     
     private weak var coordinate: MoviesListCoordinatorDelegate?
-    var movies: CurrentValueSubject<[MovieViewModel], Never> = CurrentValueSubject([])
-    
-    static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        return formatter
-    }()
-    
+    var movies: CurrentValueSubject<[MovieModel], Never> = CurrentValueSubject([])
+
     enum State {
         case initial, loading, loadingMore, loaded
         case failure(Error)
@@ -87,24 +82,13 @@ private extension MoviesListViewModel {
         }
     }
     
-    func movieViewModelMapping(movies: [Movie]?) -> [MovieViewModel] {
+    func movieViewModelMapping(movies: [Movie]?) -> [MovieModel] {
         guard let movies else { return [] }
         return movies.map {
             let url = URL(string: self.config.value(.imageURL) + $0.image)
-            let date = self.parseDate(from: $0.releaseDate)
-            let year = self.extractYear(from: date)
-            return MovieViewModel(id: $0.id, title: $0.title, image: url, releaseDate: year)
+            let date = DateUtils.parseDate(from: $0.releaseDate)
+            let year = DateUtils.extractYear(from: date)
+            return MovieModel(id: $0.id, title: $0.title, image: url, releaseDate: year)
         }
-    }
-    
-    func parseDate(from dateString: String) -> Date? {
-        MoviesListViewModel.dateFormatter.dateFormat = "yyyy-MM-dd"
-        return MoviesListViewModel.dateFormatter.date(from: dateString)
-    }
-    
-    func extractYear(from date: Date?) -> String {
-        guard let date else { return "Unknown" }
-        MoviesListViewModel.dateFormatter.dateFormat = "yyyy"
-        return MoviesListViewModel.dateFormatter.string(from: date)
     }
 }
