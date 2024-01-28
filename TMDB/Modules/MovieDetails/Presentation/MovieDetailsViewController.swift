@@ -48,6 +48,13 @@ extension MovieDetailsViewController {}
 
 private extension MovieDetailsViewController {
     func binding(viewModel: MovieDetailsViewModelType) {
+        viewModel.isLoadingPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                guard let self else { return }
+                isLoading ? self.showSkeletonView() : self.hideSkeletonView()
+            }.store(in: &subscription)
+
         viewModel.productDetailsPublisher
             .receive(on: DispatchQueue.main)
             .compactMap { $0 }
@@ -63,5 +70,19 @@ private extension MovieDetailsViewController {
         titleLabel.text = movieDetails.title
         yearLabel.text = movieDetails.year
         descriptionLabel.text = movieDetails.overview
+    }
+    
+    func showSkeletonView() {
+        posterImageView.showAnimatedGradientSkeleton()
+        titleLabel.showAnimatedGradientSkeleton()
+        descriptionLabel.showAnimatedGradientSkeleton()
+        yearLabel.showAnimatedGradientSkeleton()
+    }
+    
+    func hideSkeletonView() {
+        posterImageView.hideSkeleton()
+        titleLabel.hideSkeleton()
+        descriptionLabel.hideSkeleton()
+        yearLabel.hideSkeleton()
     }
 }

@@ -13,5 +13,6 @@ protocol MovieDetailsViewModelInput {}
 ///
 protocol MovieDetailsViewModelOutput {
     var productDetailsPublisher: AnyPublisher<MovieDetailsModel?, Never> { get }
+    var isLoadingPublisher: AnyPublisher<Bool, Never> { get }
     func viewDidLoad()
 }

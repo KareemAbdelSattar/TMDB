@@ -44,6 +44,13 @@ extension MovieDetailsViewModel: MovieDetailsViewModelOutput {
         }.eraseToAnyPublisher()
     }
     
+    var isLoadingPublisher: AnyPublisher<Bool, Never> {
+        $state.map {
+            guard case .loading = $0 else { return false }
+            return true
+        }.eraseToAnyPublisher()
+    }
+    
     func viewDidLoad() {
         performFetchMovieDetails(movieId: movieId)
     }
@@ -53,6 +60,8 @@ extension MovieDetailsViewModel: MovieDetailsViewModelOutput {
 
 private extension MovieDetailsViewModel {
     func performFetchMovieDetails(movieId: Int) {
+        state = .loading
+            
         movieDetailsUseCase.execute(with: movieId) { [weak self] result in
             guard let self else { return }
             
