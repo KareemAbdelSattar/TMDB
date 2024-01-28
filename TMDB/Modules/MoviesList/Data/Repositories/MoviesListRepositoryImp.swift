@@ -4,8 +4,8 @@ import Factory
 struct DefaultMoviesListRepository: MoviesListRepository {
     @Injected(\.dataTransferService) private var dataTransferService
 
-    func fetchMoviesList(completion: @escaping (Result<MoviesList?, Error>) -> Void) {
-        let endPoint = MoviesListsEndPoint.getMoviesList()
+    func fetchMoviesList(page: Int, completion: @escaping (Result<MoviesList?, Error>) -> Void) {
+        let endPoint = MoviesListsEndPoint.getMoviesList(page: page)
         
         dataTransferService.request(with: endPoint) { result in
             switch result {

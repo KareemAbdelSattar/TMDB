@@ -11,6 +11,10 @@ class MoviesListViewController: UIViewController {
     
     private let viewModel: MoviesListViewModelType
     private var subscription = Set<AnyCancellable>()
+    private lazy var refreshController: UIRefreshControl = {
+        let refreshController = UIRefreshControl()
+        return refreshController
+    }()
     
     // MARK: Init
     
@@ -36,7 +40,12 @@ class MoviesListViewController: UIViewController {
 
 // MARK: - Actions
 
-extension MoviesListViewController {}
+extension MoviesListViewController {
+    @objc
+    func refreshControlAction() {
+        viewModel.changeState(state: .reload)
+    }
+}
 
 // MARK: - Configurations
 
@@ -47,6 +56,7 @@ extension MoviesListViewController {}
 private extension MoviesListViewController {
     func setupUI() {
         setupTableView()
+        setupRefreshControl()
     }
     
     func setupTableView() {
@@ -56,15 +66,23 @@ private extension MoviesListViewController {
         tableView.registerNib(cellType: MoviesListTableViewCell.self)
     }
     
+    func setupRefreshControl() {
+          refreshController.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
+          tableView.refreshControl = refreshController
+      }
+    
     func binding(viewModel: MoviesListViewModelType) {
         viewModel.isLoadingPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 guard let self else { return }
                 self.tableView.updateSkeletonLoadingState(isLoading: isLoading)
+                if !isLoading {
+                    self.refreshController.endRefreshing()
+                }
             }.store(in: &subscription)
         
-        viewModel.isEmptyTableView
+        viewModel.isEmptyTableViewPublisher
             .receive(on: DispatchQueue.main)
             .sink { isEmpty in
                 self.tableView.updateTableViewState(isEmpty: isEmpty)
@@ -97,5 +115,11 @@ extension MoviesListViewController: UITableViewDelegate, SkeletonTableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRow(at: indexPath.row)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height )) {
+            viewModel.changeState(state: .loadingMore)
+        }
     }
 }

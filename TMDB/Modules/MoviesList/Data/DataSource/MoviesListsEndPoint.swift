@@ -1,10 +1,13 @@
 import Foundation
 
 struct MoviesListsEndPoint {
-    static func getMoviesList() -> EndPoint<MovieListDTO> {
+    static func getMoviesList(page: Int) -> EndPoint<MovieListDTO> {
         EndPoint(
             path: "discover/movie",
-            method: .GET
+            method: .GET,
+            queryParameters: [
+                "page": page
+            ]
         )
     }
 }
