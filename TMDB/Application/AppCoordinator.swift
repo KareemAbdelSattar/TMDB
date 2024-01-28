@@ -23,8 +23,16 @@ final class AppCoordinator: NavigationCoordinator {
 
 private extension AppCoordinator {
     func createMoviesListVC() -> UIViewController {
-        let viewModel = MoviesListViewModel()
+        let viewModel = MoviesListViewModel(coordinate: self)
         let moviesListViewController = MoviesListViewController(viewModel: viewModel)
         return moviesListViewController
+    }
+}
+
+extension AppCoordinator: MoviesListCoordinatorDelegate {
+    func didSelectMovie(_ id: Int) {
+        let movieDetailsViewModel = MovieDetailsViewModel(movieId: id)
+        let movieDetailsViewController = MovieDetailsViewController(viewModel: movieDetailsViewModel)
+        navigationController.pushViewController(movieDetailsViewController, animated: true)
     }
 }

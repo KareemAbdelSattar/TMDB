@@ -7,7 +7,9 @@ typealias MoviesListViewModelType = MoviesListViewModelInput & MoviesListViewMod
 
 /// MoviesList ViewModel Input
 ///
-protocol MoviesListViewModelInput {}
+protocol MoviesListViewModelInput {
+    func didSelectRow(at row: Int)
+}
 
 /// MoviesList ViewModel Output
 ///

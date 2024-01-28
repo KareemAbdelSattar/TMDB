@@ -2,6 +2,9 @@ import Foundation
 import Factory
 import Combine
 
+protocol MoviesListCoordinatorDelegate: AnyObject {
+    func didSelectMovie(_ id: Int)
+}
 
 // MARK: MoviesListViewModel
 
@@ -10,12 +13,13 @@ class MoviesListViewModel {
     @Injected(\.config) private var config: Configuration
     @Published private var state: State = .loading
     
+    private weak var coordinate: MoviesListCoordinatorDelegate?
     var movies: CurrentValueSubject<[MovieViewModel], Never> = CurrentValueSubject([])
     
     static let dateFormatter: DateFormatter = {
-          let formatter = DateFormatter()
-          return formatter
-      }()
+        let formatter = DateFormatter()
+        return formatter
+    }()
     
     enum State {
         case initial, loading, loadingMore, loaded
@@ -28,11 +32,19 @@ class MoviesListViewModel {
         }
     }
     
+    init(coordinate: MoviesListCoordinatorDelegate) {
+        self.coordinate = coordinate
+    }
 }
 
 // MARK: MoviesListViewModel
 
-extension MoviesListViewModel: MoviesListViewModelInput {}
+extension MoviesListViewModel: MoviesListViewModelInput {
+    func didSelectRow(at row: Int) {
+        let id = movies.value[row].id
+        coordinate?.didSelectMovie(id)
+    }
+}
 
 // MARK: MoviesListViewModelOutput
 
