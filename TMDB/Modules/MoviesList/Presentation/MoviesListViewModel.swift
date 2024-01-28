@@ -2,6 +2,9 @@ import Foundation
 import Factory
 import Combine
 
+protocol MoviesListCoordinatorDelegate: AnyObject {
+    func didSelectMovie(_ id: Int)
+}
 
 // MARK: MoviesListViewModel
 
@@ -10,13 +13,9 @@ class MoviesListViewModel {
     @Injected(\.config) private var config: Configuration
     @Published private var state: State = .loading
     
-    var movies: CurrentValueSubject<[MovieViewModel], Never> = CurrentValueSubject([])
-    
-    static let dateFormatter: DateFormatter = {
-          let formatter = DateFormatter()
-          return formatter
-      }()
-    
+    private weak var coordinate: MoviesListCoordinatorDelegate?
+    var movies: CurrentValueSubject<[MovieModel], Never> = CurrentValueSubject([])
+
     enum State {
         case initial, loading, loadingMore, loaded
         case failure(Error)
@@ -28,11 +27,19 @@ class MoviesListViewModel {
         }
     }
     
+    init(coordinate: MoviesListCoordinatorDelegate) {
+        self.coordinate = coordinate
+    }
 }
 
 // MARK: MoviesListViewModel
 
-extension MoviesListViewModel: MoviesListViewModelInput {}
+extension MoviesListViewModel: MoviesListViewModelInput {
+    func didSelectRow(at row: Int) {
+        let id = movies.value[row].id
+        coordinate?.didSelectMovie(id)
+    }
+}
 
 // MARK: MoviesListViewModelOutput
 
@@ -75,24 +82,13 @@ private extension MoviesListViewModel {
         }
     }
     
-    func movieViewModelMapping(movies: [Movie]?) -> [MovieViewModel] {
+    func movieViewModelMapping(movies: [Movie]?) -> [MovieModel] {
         guard let movies else { return [] }
         return movies.map {
             let url = URL(string: self.config.value(.imageURL) + $0.image)
-            let date = self.parseDate(from: $0.releaseDate)
-            let year = self.extractYear(from: date)
-            return MovieViewModel(id: $0.id, title: $0.title, image: url, releaseDate: year)
+            let date = DateUtils.parseDate(from: $0.releaseDate)
+            let year = DateUtils.extractYear(from: date)
+            return MovieModel(id: $0.id, title: $0.title, image: url, releaseDate: year)
         }
-    }
-    
-    func parseDate(from dateString: String) -> Date? {
-        MoviesListViewModel.dateFormatter.dateFormat = "yyyy-MM-dd"
-        return MoviesListViewModel.dateFormatter.date(from: dateString)
-    }
-    
-    func extractYear(from date: Date?) -> String {
-        guard let date else { return "Unknown" }
-        MoviesListViewModel.dateFormatter.dateFormat = "yyyy"
-        return MoviesListViewModel.dateFormatter.string(from: date)
     }
 }

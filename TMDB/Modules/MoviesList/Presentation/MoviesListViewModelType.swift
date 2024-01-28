@@ -7,13 +7,15 @@ typealias MoviesListViewModelType = MoviesListViewModelInput & MoviesListViewMod
 
 /// MoviesList ViewModel Input
 ///
-protocol MoviesListViewModelInput {}
+protocol MoviesListViewModelInput {
+    func didSelectRow(at row: Int)
+}
 
 /// MoviesList ViewModel Output
 ///
 protocol MoviesListViewModelOutput {
     var isLoadingPublisher: AnyPublisher<Bool, Never> { get }
     var isEmptyTableView: AnyPublisher<Bool, Never> { get }
-    var movies: CurrentValueSubject<[MovieViewModel], Never> { get }
+    var movies: CurrentValueSubject<[MovieModel], Never> { get }
     func viewDidLoad()
 }

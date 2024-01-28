@@ -12,7 +12,7 @@ class MoviesListTableViewCell: UITableViewCell {
         movieImageView.layer.cornerRadius = 10
     }
     
-    func configure(movieViewModel: MovieViewModel) {
+    func configure(movieViewModel: MovieModel) {
         movieImageView.kf.setImage(with: movieViewModel.image)
         titleLabel.text = movieViewModel.title
         yearLabel.text = movieViewModel.releaseDate

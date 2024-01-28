@@ -94,4 +94,8 @@ extension MoviesListViewController: UITableViewDelegate, SkeletonTableViewDataSo
         cell.configure(movieViewModel: movieViewModel)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRow(at: indexPath.row)
+    }
 }

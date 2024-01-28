@@ -1,6 +1,6 @@
 import Foundation
 
-struct MovieViewModel {
+struct MovieModel {
     let id: Int
     let title: String
     let image: URL?
