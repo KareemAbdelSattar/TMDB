@@ -30,6 +30,13 @@ extension MoviesListViewModel: MoviesListViewModelInput {}
 // MARK: MoviesListViewModelOutput
 
 extension MoviesListViewModel: MoviesListViewModelOutput {
+    var isEmptyTableView: AnyPublisher<Bool, Never> {
+        movies.combineLatest(isLoadingPublisher)
+            .map { $0.isEmpty && !$1 }
+            .eraseToAnyPublisher()
+        
+    }
+    
     var isLoadingPublisher: AnyPublisher<Bool, Never> {
         $state.map {
             guard case .loading = $0 else { return false }
@@ -52,7 +59,7 @@ private extension MoviesListViewModel {
             
             switch result {
             case .success(let moviesList):
-                self.movies.send(moviesList?.movies ?? [])
+                self.movies.send([])
             case .failure(let error):
                 self.state = .failure(error)
             }

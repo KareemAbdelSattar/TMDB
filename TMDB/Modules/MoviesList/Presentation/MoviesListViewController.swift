@@ -62,8 +62,13 @@ private extension MoviesListViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 guard let self else { return }
-                print(isLoading)
                 self.tableView.updateSkeletonLoadingState(isLoading: isLoading)
+            }.store(in: &subscription)
+        
+        viewModel.isEmptyTableView
+            .receive(on: DispatchQueue.main)
+            .sink { isEmpty in
+                print(isEmpty)
             }.store(in: &subscription)
         
         viewModel.movies
