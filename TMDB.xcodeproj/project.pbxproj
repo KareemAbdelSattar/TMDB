@@ -231,7 +231,6 @@
 		EB28B5892B65155C003DA6D1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				EBB420982B663F3300FCB6D1 /* Common */,
 				EB28B5872B651537003DA6D1 /* MoviesList */,
 				EB28B5882B651550003DA6D1 /* MovieDetails */,
 			);
@@ -347,7 +346,7 @@
 				EB28B5C72B65412A003DA6D1 /* MoviesListViewModel.swift */,
 				EB28B5C52B65412A003DA6D1 /* MoviesListViewModelType.swift */,
 				EBFC714E2B66436100E59D75 /* MovieModel.swift */,
-				EB28B5DB2B655100003DA6D1 /* Cells */,
+				EB28B5DB2B655100003DA6D1 /* Views */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -381,12 +380,13 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
-		EB28B5DB2B655100003DA6D1 /* Cells */ = {
+		EB28B5DB2B655100003DA6D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EB28B5DC2B655104003DA6D1 /* MoviesListTableViewCell */,
+				EBFC71682B667F2900E59D75 /* CustomViews */,
+				EBFC71692B667F3C00E59D75 /* Cells */,
 			);
-			path = Cells;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EB28B5DC2B655104003DA6D1 /* MoviesListTableViewCell */ = {
@@ -446,14 +446,6 @@
 				EB28B5F72B6557DC003DA6D1 /* MovieListDTO.swift */,
 			);
 			path = DTO;
-			sourceTree = "<group>";
-		};
-		EBB420982B663F3300FCB6D1 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				EBB420992B663F3800FCB6D1 /* EmptyView */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		EBB420992B663F3800FCB6D1 /* EmptyView */ = {
@@ -519,6 +511,22 @@
 				EBFC71662B66643E00E59D75 /* DateUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		EBFC71682B667F2900E59D75 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EBB420992B663F3800FCB6D1 /* EmptyView */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		EBFC71692B667F3C00E59D75 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EB28B5DC2B655104003DA6D1 /* MoviesListTableViewCell */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
