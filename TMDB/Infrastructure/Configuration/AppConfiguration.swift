@@ -1,20 +1,16 @@
 import Foundation
+import Factory
 
-struct AppConfiguration {
-    
+final class AppConfiguration {
     static let shared = AppConfiguration()
-
-    private init() {}
     
-    enum Keys: String {
-        case baseURL = "BASE_URL"
+    @Injected(\.config) private var config: Configuration
+    
+    var baseURL: String {
+        config.value(.baseURL)
     }
     
-    func value(_ key: Keys) -> String {
-        guard let value = Bundle.main.infoDictionary?[key.rawValue] as? String else {
-            fatalError("the key: \(key.rawValue) not found")
-        }
-        
-        return value
+    var apiKey: String {
+        "fb99f7adb34fb6386f72a3b6ca654295"
     }
 }

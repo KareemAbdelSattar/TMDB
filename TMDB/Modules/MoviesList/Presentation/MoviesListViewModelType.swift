@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 /// MoviesList Input & Output
 ///
@@ -10,4 +11,9 @@ protocol MoviesListViewModelInput {}
 
 /// MoviesList ViewModel Output
 ///
-protocol MoviesListViewModelOutput {}
+protocol MoviesListViewModelOutput {
+    var isLoadingPublisher: AnyPublisher<Bool, Never> { get }
+    var isEmptyTableView: AnyPublisher<Bool, Never> { get }
+    var movies: CurrentValueSubject<[MovieViewModel], Never> { get }
+    func viewDidLoad()
+}
