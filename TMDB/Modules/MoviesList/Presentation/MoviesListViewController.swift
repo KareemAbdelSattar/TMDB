@@ -53,7 +53,6 @@ private extension MoviesListViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 150
         tableView.registerNib(cellType: MoviesListTableViewCell.self)
     }
     
@@ -91,6 +90,8 @@ extension MoviesListViewController: UITableViewDelegate, SkeletonTableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellType: MoviesListTableViewCell.self, for: indexPath)
+        let movieViewModel = viewModel.movies.value[indexPath.row]
+        cell.configure(movieViewModel: movieViewModel)
         return cell
     }
 }

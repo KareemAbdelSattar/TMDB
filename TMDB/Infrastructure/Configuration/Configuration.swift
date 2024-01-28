@@ -8,6 +8,7 @@ struct Configuration {
     
     enum Keys: String {
         case baseURL = "BASE_URL"
+        case imageURL = "IMAGE_URL"
     }
     
     func value(_ key: Keys) -> String {

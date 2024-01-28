@@ -8,11 +8,13 @@ class MoviesListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        movieImageView.kf.indicatorType = .activity
+        movieImageView.layer.cornerRadius = 10
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        movieImageView.kf.setImage(with: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQamqpHyUPsm0VINKISOMADb-AE2RMYCA3JBWCFfequ4w&s"))
-
+    func configure(movieViewModel: MovieViewModel) {
+        movieImageView.kf.setImage(with: movieViewModel.image)
+        titleLabel.text = movieViewModel.title
+        yearLabel.text = movieViewModel.releaseDate
     }
 }
