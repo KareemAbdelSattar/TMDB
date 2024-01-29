@@ -211,7 +211,6 @@ extension MoviesListViewModelTests {
         return mockUseCase
     }
 
-    
     private func setupSuccessSut(useCase: MockMoviesListUseCase) -> MoviesListViewModelType {
         
         Container.shared.moviesListUseCase.register { useCase }
