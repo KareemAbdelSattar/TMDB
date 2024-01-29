@@ -17,6 +17,7 @@ protocol MoviesListViewModelInput {
 protocol MoviesListViewModelOutput {
     var isLoadingPublisher: AnyPublisher<Bool, Never> { get }
     var isEmptyTableViewPublisher: AnyPublisher<Bool, Never> { get }
+    var errorPublisher: AnyPublisher<NSError, Never> { get }
     var movies: CurrentValueSubject<[MovieModel], Never> { get }
     func viewDidLoad()
 }

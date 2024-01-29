@@ -81,6 +81,17 @@ extension MoviesListViewModel: MoviesListViewModelOutput {
         }.eraseToAnyPublisher()
     }
     
+    var errorPublisher: AnyPublisher<NSError, Never> {
+        $state
+            .compactMap { state -> NSError? in
+                if case .failure(let error) = state {
+                    return error as NSError
+                }
+                return nil
+            }
+            .eraseToAnyPublisher()
+    }
+    
     func viewDidLoad() {
         performFetchMoviesList()
     }
