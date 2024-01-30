@@ -65,6 +65,7 @@
 		EBFC718D2B681EAB00E59D75 /* MockMoviesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC718C2B681EAB00E59D75 /* MockMoviesListRepository.swift */; };
 		EBFC718F2B68281000E59D75 /* MockMoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC718E2B68281000E59D75 /* MockMoviesListViewModel.swift */; };
 		EBFC71912B6829F400E59D75 /* MoviesListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71902B6829F400E59D75 /* MoviesListViewControllerTests.swift */; };
+		EBFC71932B68F38F00E59D75 /* MoviesListDTOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71922B68F38F00E59D75 /* MoviesListDTOTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		EBFC718C2B681EAB00E59D75 /* MockMoviesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoviesListRepository.swift; sourceTree = "<group>"; };
 		EBFC718E2B68281000E59D75 /* MockMoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoviesListViewModel.swift; sourceTree = "<group>"; };
 		EBFC71902B6829F400E59D75 /* MoviesListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewControllerTests.swift; sourceTree = "<group>"; };
+		EBFC71922B68F38F00E59D75 /* MoviesListDTOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListDTOTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +590,7 @@
 			children = (
 				EBFC71802B67E4C100E59D75 /* Mock */,
 				EBFC71832B67E5EE00E59D75 /* MoviesListRepositoryTests.swift */,
+				EBFC71922B68F38F00E59D75 /* MoviesListDTOTests.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				EBFC71712B67BE8800E59D75 /* MockAppCoordinator.swift in Sources */,
 				EBFC718F2B68281000E59D75 /* MockMoviesListViewModel.swift in Sources */,
 				EBFC71822B67E4D100E59D75 /* MockDataTransferService.swift in Sources */,
+				EBFC71932B68F38F00E59D75 /* MoviesListDTOTests.swift in Sources */,
 				EB28B5692B651437003DA6D1 /* MoviesListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
