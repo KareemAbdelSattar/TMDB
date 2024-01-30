@@ -13,6 +13,13 @@ final class MovieDetailsRepositoryTests: XCTestCase {
         sut = DefaultMovieDetailsRepository()
     }
     
+    override func tearDown() {
+        super.tearDown()
+        mockService = nil
+        Container.shared.reset()
+        sut = nil
+    }
+    
     func testFetchMovieDetails_OnSuccess_ReturnMovieDetails() {
         //Given
         mockService.resultToReturn = Result<MovieDetailsDTO, DataTransferError>.success(
