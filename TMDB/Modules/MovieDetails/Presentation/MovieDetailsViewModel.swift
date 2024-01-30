@@ -14,14 +14,7 @@ class MovieDetailsViewModel {
     enum State {
         case loading
         case loaded(MovieDetailsModel)
-        case failure(Error)
-        var isLoaded: Bool {
-            if case .loaded = self {
-                return true
-            }
-            return false
-        }
-        
+        case failure(Error)        
     }
     
     init(movieId: Int) {
@@ -32,7 +25,11 @@ class MovieDetailsViewModel {
 
 // MARK: MovieDetailsViewModel
 
-extension MovieDetailsViewModel: MovieDetailsViewModelInput {}
+extension MovieDetailsViewModel: MovieDetailsViewModelInput {
+    func changeState(state: State) {
+        self.state = state
+    }
+}
 
 // MARK: MovieDetailsViewModelOutput
 
@@ -49,6 +46,17 @@ extension MovieDetailsViewModel: MovieDetailsViewModelOutput {
             guard case .loading = $0 else { return false }
             return true
         }.eraseToAnyPublisher()
+    }
+    
+    var errorPublisher: AnyPublisher<NSError, Never> {
+        $state
+            .compactMap { state -> NSError? in
+                if case .failure(let error) = state {
+                    return error as NSError
+                }
+                return nil
+            }
+            .eraseToAnyPublisher()
     }
     
     func viewDidLoad() {

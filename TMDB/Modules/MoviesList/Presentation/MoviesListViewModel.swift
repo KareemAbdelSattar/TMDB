@@ -22,12 +22,6 @@ class MoviesListViewModel {
         case initial, loading, loadingMore, loaded
         case failure(Error)
         case reload
-        var isLoaded: Bool {
-            if case .loaded = self {
-                return true
-            }
-            return false
-        }
     }
     
     init(coordinate: MoviesListCoordinatorDelegate) {

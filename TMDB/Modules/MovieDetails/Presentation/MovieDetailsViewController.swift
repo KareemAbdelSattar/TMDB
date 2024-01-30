@@ -4,11 +4,11 @@ import Combine
 class MovieDetailsViewController: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet private weak var posterImageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var yearLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var posterImageViewHeight: NSLayoutConstraint!
+    @IBOutlet private(set) weak var posterImageView: UIImageView!
+    @IBOutlet private(set) weak var titleLabel: UILabel!
+    @IBOutlet private(set) weak var yearLabel: UILabel!
+    @IBOutlet private(set) weak var descriptionLabel: UILabel!
+    @IBOutlet private(set) weak var posterImageViewHeight: NSLayoutConstraint!
     
     // MARK: Properties
     

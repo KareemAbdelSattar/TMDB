@@ -20,9 +20,6 @@ final class MoviesListViewControllerTests: XCTestCase {
     }
 
     func testViewControllerInitializesTableView() {
-        // When
-        sut.loadViewIfNeeded()
-        
         //Then
         XCTAssertNotNil(sut.tableView, "Table view should be initialized")
     }
