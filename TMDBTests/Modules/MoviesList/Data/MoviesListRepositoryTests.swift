@@ -1,19 +1,27 @@
-//
-//  MoviesListRepositoryTests.swift
-//  TMDBTests
-//
-//  Created by Kareem Abd El Sattar on 29/01/2024.
-//
-
 import XCTest
 import Factory
 @testable import TMDB
 
 final class MoviesListRepositoryTests: XCTestCase {
     
-    func testFetchMoviesListSuccessReturnsExpectedData() {
+    var mockService: MockDataTransferService!
+    var sut: DefaultMoviesListRepository!
+    
+    override func setUp() {
+        super.setUp()
+        mockService = MockDataTransferService()
+        Container.shared.dataTransferService.register { self.mockService }
+        sut = DefaultMoviesListRepository()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        mockService = nil
+        sut = nil
+    }
+    
+    func testFetchMoviesList_WhenSuccessful_ReturnsExpectedData() {
         // Given
-        let mockService = MockDataTransferService()
         mockService.resultToReturn = Result<MovieListDTO, DataTransferError>.success(
             MovieListDTO(
                 page: 1,
@@ -24,9 +32,7 @@ final class MoviesListRepositoryTests: XCTestCase {
                 totalResults: 20
             )
         )
-        Container.shared.dataTransferService.register { mockService }
         
-        let sut = DefaultMoviesListRepository()
         let expectation = expectation(description: "Fetch Movies should success")
         var returnedMovies: MoviesList?
         
@@ -53,9 +59,8 @@ final class MoviesListRepositoryTests: XCTestCase {
         XCTAssertEqual(returnedMovies?.movies[0].image, "test")
     }
     
-    func testFetchMoviesListSuccessReturnsEmptyData() {
+    func testFetchMoviesList_WhenSuccessful_ReturnsEmptyData() {
         // Given
-        let mockService = MockDataTransferService()
         mockService.resultToReturn = Result<MovieListDTO, DataTransferError>.success(
             MovieListDTO(
                 page: 1,
@@ -64,9 +69,7 @@ final class MoviesListRepositoryTests: XCTestCase {
                 totalResults: 1
             )
         )
-        Container.shared.dataTransferService.register { mockService }
         
-        let sut = DefaultMoviesListRepository()
         let expectation = expectation(description: "Fetch Movies should success by with empty movies")
         var returnedMovies: MoviesList?
         
@@ -89,13 +92,10 @@ final class MoviesListRepositoryTests: XCTestCase {
         XCTAssertEqual(returnedMovies?.movies.count, 0)
     }
     
-    func testFetchMoviesListFailReturns() {
+    func testFetchMoviesList_WhenFails_ReturnsError() {
         // Given
-        let mockService = MockDataTransferService()
         mockService.resultToReturn = Result<MovieListDTO, DataTransferError>.failure(.noResponse)
-        Container.shared.dataTransferService.register { mockService }
         
-        let sut = DefaultMoviesListRepository()
         let expectation = expectation(description: "Fetch Movies should fail")
         var returnedError: Error?
         
@@ -112,6 +112,6 @@ final class MoviesListRepositoryTests: XCTestCase {
         // Then
         waitForExpectations(timeout: 2)
         XCTAssertNotNil(returnedError, "Returned Error should not be nil")
-        XCTAssertEqual(returnedError?.localizedDescription, returnedError?.localizedDescription)
+        XCTAssertEqual(returnedError?.localizedDescription, DataTransferError.noResponse.localizedDescription)
     }
 }
