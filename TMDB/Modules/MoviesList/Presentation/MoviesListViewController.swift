@@ -5,7 +5,7 @@ import Combine
 class MoviesListViewController: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private(set) weak var tableView: UITableView!
     
     // MARK: Properties
     
