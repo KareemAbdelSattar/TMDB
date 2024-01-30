@@ -19,7 +19,6 @@ final class MoviesListViewModelTests: XCTestCase {
     func testViewModelFetchMoviesSuccess() {
         // Given
         let sut = setupSuccessSut(useCase: setupMockUseCaseWithSuccessData())
-        let expectation = expectation(description: "Movies fetched successfully")
         var receivedMovies: [MovieModel] = []
         
         //When
@@ -27,13 +26,9 @@ final class MoviesListViewModelTests: XCTestCase {
         sut.movies
             .sink { movies in
                 receivedMovies = movies
-                if !movies.isEmpty {
-                    expectation.fulfill()
-                }
             }
             .store(in: &cancellables)
         
-        waitForExpectations(timeout: 1)
         
         // Then
         XCTAssertEqual(receivedMovies.count, 2)
@@ -46,7 +41,6 @@ final class MoviesListViewModelTests: XCTestCase {
     func testViewModelLoadMoreMoviesSuccess() {
         // Given
         let sut = setupSuccessSut(useCase: setupMockUseCaseWithSuccessData())
-        let expectation = self.expectation(description: "More movies loaded successfully")
         var receivedMovies: [MovieModel] = []
         
         //When
@@ -56,15 +50,9 @@ final class MoviesListViewModelTests: XCTestCase {
         sut.movies
             .sink { movies in
                 receivedMovies = movies
-                if !movies.isEmpty {
-                    expectation.fulfill()
-                }
             }
             .store(in: &cancellables)
-        
-
-        waitForExpectations(timeout: 5)
-        
+                
         // Then
         XCTAssertEqual(receivedMovies.count, 4)
     }
@@ -72,7 +60,6 @@ final class MoviesListViewModelTests: XCTestCase {
     func testViewModelReloadMoviesSuccess() {
         // Given
         let sut = setupSuccessSut(useCase: setupMockUseCaseWithSuccessData())
-          let expectation = self.expectation(description: "More movies loaded successfully")
           var receivedMovies: [MovieModel] = []
         
         //When
@@ -84,15 +71,9 @@ final class MoviesListViewModelTests: XCTestCase {
         sut.movies
             .sink { movies in
                 receivedMovies = movies
-                if !movies.isEmpty {
-                    expectation.fulfill()
-                }
             }
             .store(in: &cancellables)
-        
-
-        waitForExpectations(timeout: 1)
-        
+                
         // Then
         XCTAssertEqual(receivedMovies.count, 2)
     }
@@ -101,19 +82,16 @@ final class MoviesListViewModelTests: XCTestCase {
         // Given
         let sut = setupSuccessSut(useCase: setupMockUseCaseWithSuccessData())
         var isLoading = false
-        let loadingStateExpectation = expectation(description: "isLoadingPublisher should emit true when state is loading")
 
         // When
         sut.changeState(state: .loading)
         sut.isLoadingPublisher
             .sink { value in
                 isLoading = value
-                loadingStateExpectation.fulfill()
             }
             .store(in: &cancellables)
         
         // Then
-        waitForExpectations(timeout: 1.0)
         XCTAssertTrue(isLoading, "isLoadingPublisher did not emit true during loading state")
     }
     
@@ -121,26 +99,22 @@ final class MoviesListViewModelTests: XCTestCase {
         // Given
         let sut = setupSuccessSut(useCase: setupMockUseCaseWithSuccessEmptyData())
         var isEmpty = false
-        let expectation = self.expectation(description: "isEmptyTableViewPublisher should emit true for an empty movies list")
 
         // When
         sut.viewDidLoad()
         sut.isEmptyTableViewPublisher
             .sink { value in
-                expectation.fulfill()
                 isEmpty = value
             }
             .store(in: &cancellables)
     
         // Then
-        waitForExpectations(timeout: 1.0)
         XCTAssertTrue(isEmpty, "isEmptyTableViewPublisher did not emit true for an empty movies list")
     }
     
     func testViewModelFetchMoviesFail() {
         // Given
         let sut = setupSuccessSut(useCase: setupMockUseCaseWithFail())
-        let expectation = self.expectation(description: "Expecting movies fetch to fail")
         var receivedError: NSError?
         
         //When
@@ -148,11 +122,9 @@ final class MoviesListViewModelTests: XCTestCase {
         sut.errorPublisher
             .sink { error in
                 receivedError = (error)
-                expectation.fulfill()
             }
             .store(in: &cancellables)
         
-        waitForExpectations(timeout: 5)
         
         // Then
         XCTAssertNotNil(receivedError, "No error received when expected")
