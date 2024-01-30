@@ -68,6 +68,7 @@
 		EBFC71932B68F38F00E59D75 /* MoviesListDTOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71922B68F38F00E59D75 /* MoviesListDTOTests.swift */; };
 		EBFC71972B68FEEB00E59D75 /* FetchMovieDetailsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71962B68FEEB00E59D75 /* FetchMovieDetailsUseCaseTests.swift */; };
 		EBFC719A2B68FF6F00E59D75 /* MockMovieDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71992B68FF6F00E59D75 /* MockMovieDetailRepository.swift */; };
+		EBFC71A12B69054A00E59D75 /* MovieDetailsDTOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71A02B69054A00E59D75 /* MovieDetailsDTOTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		EBFC71922B68F38F00E59D75 /* MoviesListDTOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListDTOTests.swift; sourceTree = "<group>"; };
 		EBFC71962B68FEEB00E59D75 /* FetchMovieDetailsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMovieDetailsUseCaseTests.swift; sourceTree = "<group>"; };
 		EBFC71992B68FF6F00E59D75 /* MockMovieDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieDetailRepository.swift; sourceTree = "<group>"; };
+		EBFC71A02B69054A00E59D75 /* MovieDetailsDTOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsDTOTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -637,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				EBFC71952B68FECA00E59D75 /* Domain */,
+				EBFC719C2B69050800E59D75 /* Data */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -656,6 +659,22 @@
 				EBFC71992B68FF6F00E59D75 /* MockMovieDetailRepository.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		EBFC719C2B69050800E59D75 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EBFC719D2B69051100E59D75 /* Mock */,
+				EBFC71A02B69054A00E59D75 /* MovieDetailsDTOTests.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EBFC719D2B69051100E59D75 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -856,6 +875,7 @@
 				EBFC71882B681E4000E59D75 /* MoviesListUseCaseTests.swift in Sources */,
 				EBFC71712B67BE8800E59D75 /* MockAppCoordinator.swift in Sources */,
 				EBFC718F2B68281000E59D75 /* MockMoviesListViewModel.swift in Sources */,
+				EBFC71A12B69054A00E59D75 /* MovieDetailsDTOTests.swift in Sources */,
 				EBFC71822B67E4D100E59D75 /* MockDataTransferService.swift in Sources */,
 				EBFC71932B68F38F00E59D75 /* MoviesListDTOTests.swift in Sources */,
 				EB28B5692B651437003DA6D1 /* MoviesListViewModelTests.swift in Sources */,
