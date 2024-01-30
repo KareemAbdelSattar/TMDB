@@ -14,8 +14,10 @@ Welcome to TMDB, a sophisticated Movies App meticulously designed using Clean Ar
 - **Clean Architecture Model:** Adopts a layered approach (Domain, Data, Presentation) ensuring a decoupled and testable structure.
 - **MVVM Pattern:** Utilizes the Model-View-ViewModel pattern in the presentation layer for a clear separation of concerns.
 - **Combine Framework Integration:** Harnesses the power of Combine for responsive and event-driven programming.
+- **Factory Package:** Implements the Factory package to enhance dependency injection, improving code maintainability and testability by providing a streamlined way to create and manage dependencies.
 - **Robust Network Layer:** A well-architected network layer underpins API communication, enhancing data exchange efficiency.
 - **Coordinator Pattern:** Consider implementing the Coordinator pattern for improved navigation if the application complexity grows.
+- **Skeleton Loading:** Enhances the user experience with skeleton loading, providing an interactive loading experience that keeps users engaged while waiting for content to load.
 
 ## Future Roadmap
 
