@@ -72,6 +72,8 @@
 		EBFC71A32B690AA700E59D75 /* MovieDetailsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71A22B690AA700E59D75 /* MovieDetailsRepositoryTests.swift */; };
 		EBFC71A82B690E8000E59D75 /* MockMovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71A72B690E8000E59D75 /* MockMovieDetailsUseCase.swift */; };
 		EBFC71AA2B690F7800E59D75 /* MovieDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71A92B690F7800E59D75 /* MovieDetailsViewModelTests.swift */; };
+		EBFC71AC2B6917E900E59D75 /* MovieDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71AB2B6917E900E59D75 /* MovieDetailsViewControllerTests.swift */; };
+		EBFC71AE2B69180900E59D75 /* MockMovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC71AD2B69180900E59D75 /* MockMovieDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +161,8 @@
 		EBFC71A22B690AA700E59D75 /* MovieDetailsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRepositoryTests.swift; sourceTree = "<group>"; };
 		EBFC71A72B690E8000E59D75 /* MockMovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieDetailsUseCase.swift; sourceTree = "<group>"; };
 		EBFC71A92B690F7800E59D75 /* MovieDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		EBFC71AB2B6917E900E59D75 /* MovieDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewControllerTests.swift; sourceTree = "<group>"; };
+		EBFC71AD2B69180900E59D75 /* MockMovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -690,6 +694,7 @@
 			children = (
 				EBFC71A62B690E5D00E59D75 /* Mock */,
 				EBFC71A92B690F7800E59D75 /* MovieDetailsViewModelTests.swift */,
+				EBFC71AB2B6917E900E59D75 /* MovieDetailsViewControllerTests.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -698,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				EBFC71A72B690E8000E59D75 /* MockMovieDetailsUseCase.swift */,
+				EBFC71AD2B69180900E59D75 /* MockMovieDetailsViewModel.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -898,10 +904,12 @@
 				EBFC719A2B68FF6F00E59D75 /* MockMovieDetailRepository.swift in Sources */,
 				EBFC718D2B681EAB00E59D75 /* MockMoviesListRepository.swift in Sources */,
 				EBFC716F2B67BE5F00E59D75 /* MockMoviesListUseCase.swift in Sources */,
+				EBFC71AC2B6917E900E59D75 /* MovieDetailsViewControllerTests.swift in Sources */,
 				EBFC71882B681E4000E59D75 /* MoviesListUseCaseTests.swift in Sources */,
 				EBFC71712B67BE8800E59D75 /* MockAppCoordinator.swift in Sources */,
 				EBFC718F2B68281000E59D75 /* MockMoviesListViewModel.swift in Sources */,
 				EBFC71A12B69054A00E59D75 /* MovieDetailsDTOTests.swift in Sources */,
+				EBFC71AE2B69180900E59D75 /* MockMovieDetailsViewModel.swift in Sources */,
 				EBFC71A82B690E8000E59D75 /* MockMovieDetailsUseCase.swift in Sources */,
 				EBFC71822B67E4D100E59D75 /* MockDataTransferService.swift in Sources */,
 				EBFC71A32B690AA700E59D75 /* MovieDetailsRepositoryTests.swift in Sources */,
