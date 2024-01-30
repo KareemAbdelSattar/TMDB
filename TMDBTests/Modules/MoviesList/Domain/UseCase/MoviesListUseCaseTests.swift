@@ -3,10 +3,23 @@ import XCTest
 
 final class MoviesListUseCaseTests: XCTestCase {
 
-    func testExecuteSuccessReturnsExpectedData() {
+    var mockRepository: MockMoviesListRepository!
+    var sut: DefaultFetchMoviesListUseCase!
+    
+    override func setUp() {
+        super.setUp()
+        mockRepository = MockMoviesListRepository()
+        sut = DefaultFetchMoviesListUseCase(moviesListRepository: mockRepository)
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        mockRepository = nil
+        sut = nil
+    }
+    
+    func testExecuteFetchesMovies_OnSuccess_WithData() {
         // Given
-        let mockRepository = MockMoviesListRepository()
-        let sut = DefaultFetchMoviesListUseCase(moviesListRepository: mockRepository)
         mockRepository.resultToReturn = .success(
             MoviesList(
                 page: 1,
@@ -39,10 +52,8 @@ final class MoviesListUseCaseTests: XCTestCase {
         XCTAssertEqual(returnedResult?.movies[0].releaseDate, "2023-12-20")
     }
     
-    func testExecuteSuccessReturnsExpectedEmptyData() {
+    func testExecuteFetchesMovies_OnSuccess_WithEmptyData() {
         // Given
-        let mockRepository = MockMoviesListRepository()
-        let sut = DefaultFetchMoviesListUseCase(moviesListRepository: mockRepository)
         mockRepository.resultToReturn = .success(
             MoviesList(
                 page: 1,
@@ -67,10 +78,8 @@ final class MoviesListUseCaseTests: XCTestCase {
         XCTAssertTrue(returnedResult!.movies.isEmpty)
     }
     
-    func testExecuteSuccessReturnsExpectedNilData() {
+    func testExecuteFetchesMovies_OnSuccess_WithNilData() {
         // Given
-        let mockRepository = MockMoviesListRepository()
-        let sut = DefaultFetchMoviesListUseCase(moviesListRepository: mockRepository)
         mockRepository.resultToReturn = .success(nil)
         let expectation = expectation(description: "Fetch ِEmpty Movies should success")
         var returnedResult: MoviesList?
@@ -88,10 +97,8 @@ final class MoviesListUseCaseTests: XCTestCase {
         XCTAssertNil(returnedResult, "Returned result should be nil")
     }
     
-    func testExecuteFailReturns() {
+    func testExecuteFetchesMovies_OnFailure_ReturnsError() {
         // Given
-        let mockRepository = MockMoviesListRepository()
-        let sut = DefaultFetchMoviesListUseCase(moviesListRepository: mockRepository)
         mockRepository.resultToReturn = .failure(NSError(domain: "com.test", code: 500))
         let expectation = expectation(description: "Fetch Movies should fail")
         var returnedError: NSError?
