@@ -46,9 +46,9 @@ final class MoviesListRepositoryTests: XCTestCase {
             }
         }
         
-        // Then
         waitForExpectations(timeout: 2)
-        
+
+        // Then
         XCTAssertNotNil(returnedMovies)
         XCTAssertEqual(returnedMovies?.page, 1, "Returned movies list should not be nil")
         XCTAssertEqual(returnedMovies?.totalPage, 10, "Returned page should be 10")
