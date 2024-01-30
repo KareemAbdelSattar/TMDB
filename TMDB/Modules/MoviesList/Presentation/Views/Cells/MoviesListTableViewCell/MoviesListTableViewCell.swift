@@ -2,9 +2,9 @@ import UIKit
 import Kingfisher
 
 class MoviesListTableViewCell: UITableViewCell {
-    @IBOutlet private weak var movieImageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private(set) weak var movieImageView: UIImageView!
+    @IBOutlet private(set) weak var titleLabel: UILabel!
+    @IBOutlet private(set) weak var yearLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
